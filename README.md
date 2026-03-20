@@ -2,7 +2,7 @@
 
 A Python toolkit for validating, cleaning, merging, and analysing Excel-based data pipelines.
 
-[![CI](https://github.com/Dustin2304/Schema-Validator/actions/workflows/ci.yml/badge.svg)](https://github.com/Dustin2304/Schema-Validator/actions/workflows/ci.yml)
+[![CI](https://github.com/Dustin2304/excel-utility-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/Dustin2304/excel-utility-hub/actions/workflows/ci.yml)
 
 ---
 
@@ -68,8 +68,8 @@ This separation makes the test suite fast and deterministic, and it makes it pos
 ## Installation
 
 ```bash
-git clone https://github.com/Dustin2304/Schema-Validator.git
-cd Schema-Validator
+git clone https://github.com/Dustin2304/excel-utility-hub.git
+cd excel-utility-hub
 
 python -m venv .venv
 source .venv/bin/activate
