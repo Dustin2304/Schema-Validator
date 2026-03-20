@@ -58,7 +58,8 @@ class ValidationReport:
             + ", ".join(v.rule for v in self.violations)
         )
 
-def to_dict(self: "ValidationReport") -> dict[str, Any]:        return {
+def to_dict(self: "ValidationReport") -> dict[str, Any]:
+    return {
             "is_valid":   self.is_valid,
             "summary":    self.summary,
             "violations": [
@@ -72,3 +73,23 @@ def to_dict(self: "ValidationReport") -> dict[str, Any]:        return {
             ],
         }
 
+
+class DuplicateStrategy(str, Enum):
+    DROP_FIRST      = "drop_first"
+    DROP_LAST       = "drop_last"
+    FLAG            = "flag"
+    MERGE_AGGREGATE = "merge_aggregate"
+
+
+@dataclass
+class DedupReport:
+    duplicates_found: int
+    rows_affected:    int
+    strategy_used:    DuplicateStrategy
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "duplicates_found": self.duplicates_found,
+            "rows_affected":    self.rows_affected,
+            "strategy_used":    self.strategy_used.value,
+        }
