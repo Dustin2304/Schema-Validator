@@ -13,6 +13,22 @@ _DTYPE_MAP: dict[DType, type] = {
 
 
 def validate(df: pd.DataFrame, schema: Schema) -> ValidationReport:
+    """
+    Validate a DataFrame against a Schema definition.
+
+    Checks for missing/extra columns, nullable constraints,
+    dtype compatibility, value ranges, and allowed values.
+    All rules are evaluated independently; a single call reports
+    every violation at once.
+
+    Args:
+        df:     The DataFrame to validate.
+        schema: The expected schema definition.
+
+    Returns:
+        ValidationReport with is_valid flag and list of Violations.
+        Never raises — all problems are captured as violations.
+    """
     violations: list[Violation] = []
 
     # Rule 1: missing columns
